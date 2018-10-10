@@ -40,10 +40,7 @@ class PetsController < ApplicationController
     if !params[:pet].keys.include?("owner_id")
       # params["owner"]["owner_id"] = []
       params["owner"]["name"] = Owner.find_by(id: params["pet"]["owner"]["owner_id"]).name
-      
       @pet.owner = Owner.find_by(id: params["owner"]["owner_id"])
-
-      params["owner"]["name"] = Owner.find_by(id: params["pet"]["owner"]["owner_id"]).name
 
     end
     puts params
