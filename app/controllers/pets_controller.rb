@@ -40,7 +40,7 @@ class PetsController < ApplicationController
     owner_name = params["owner"]["name"]
     should_create_owner = !owner_name.empty?
 
-    puts @p
+    puts @p.params
     # puts owner_name
     puts params
 
@@ -62,6 +62,8 @@ end
 
 
 class UpdatePetParams
+  attr_accessor :params
+
   def initialize(params)
     if params["pet"].nil?
       raise "Expected Pet to be defined"
