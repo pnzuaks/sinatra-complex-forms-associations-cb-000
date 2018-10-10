@@ -39,9 +39,10 @@ class PetsController < ApplicationController
 
     owner_name = params["owner"]["name"]
     should_create_owner = !owner_name.empty?
-    
-    puts @p.owner_name
-    puts owner_name
+
+    puts @p
+    # puts owner_name
+    puts params
 
     @pet = Pet.find(params[:id])
     @pet.update(params["pet"])
