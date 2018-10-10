@@ -57,6 +57,14 @@ end
 
 class UpdatePetParams
   def initialize(params)
-    
+    if params["pet"].nil?
+      raise "Expected Pet to be defined"
+    end
+    if params["pet"]["name"].nil?
+      raise "Expected Pet to have a name"
+    end
+    if params["owner"]["name"].nil?
+      raise "Expected Pet to have a name"
+    end
   end
 end
