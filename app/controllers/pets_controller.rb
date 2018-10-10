@@ -46,7 +46,7 @@ class PetsController < ApplicationController
       owner_name = Owner.find_by(id: params["pet"]["owner"]["owner_id"]).name
       @pet.save
       # @pet.owner = Owner.find_by(id: params["owner"]["owner_id"])
-    else if 
+    elsif 
     end
     puts params
 
