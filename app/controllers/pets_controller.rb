@@ -37,7 +37,7 @@ class PetsController < ApplicationController
   post '/pets/:id' do
     @p = UpdatePetParams.new(params)
 
-    owner_name = params["owner"]["name"]
+    owner_name = @p.owner_name
     should_create_owner = !owner_name.empty?
 
     puts @p.params
