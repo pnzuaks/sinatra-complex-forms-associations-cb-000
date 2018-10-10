@@ -41,7 +41,7 @@ class PetsController < ApplicationController
     should_create_owner = @p.should_create_owner?
 
     @pet = Pet.find(params[:id])
-    @pet.update(@p.pet_name)
+    @pet.update(params["pet"])
 
     if owner_name.empty?
       owner_name = Owner.find_by(id: @p.owner_id).name
