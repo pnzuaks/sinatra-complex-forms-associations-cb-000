@@ -75,8 +75,12 @@ class UpdatePetParams
     params["pet"]["name"]
   end
 
-  def owner
-    params["owner"]
+  def owner_name
+    params["owner"]["name"]
+  end
+
+  def owner_id
+    params["owner"]["owner_id"].first
   end
 
   def should_create_owner?
