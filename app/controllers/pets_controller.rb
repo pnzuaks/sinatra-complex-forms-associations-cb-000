@@ -48,6 +48,8 @@ class PetsController < ApplicationController
     # if !params[:pet].keys.include?("owner_id")
       # params["owner"]["owner_id"] = []
       owner_name = Owner.find_by(id: params["owner"]["owner_id"]).name
+      params["owner"]["name"] = Owner.find_by(id: params["pet"]["owner_id"][0]).name
+      
       # @pet.owner = Owner.find_by(id: params["owner"]["owner_id"])
       @pet.save
 
