@@ -39,7 +39,11 @@ class PetsController < ApplicationController
     owner_name = params["owner"]["name"]
     has_owner_name = !owner_name.empty?
 
+    @pet = Pet.find(params[:id])
+    @pet.update(params["pet"])
+
     puts params
+
       if owner_name.empty?
     # if !params[:pet].keys.include?("owner_id")
       # params["owner"]["owner_id"] = []
@@ -50,8 +54,7 @@ class PetsController < ApplicationController
     end
     puts params
 
-    @pet = Pet.find(params[:id])
-    @pet.update(params["pet"])
+
 
     if has_owner_name
       @pet.owner = Owner.create(name: owner_name)
