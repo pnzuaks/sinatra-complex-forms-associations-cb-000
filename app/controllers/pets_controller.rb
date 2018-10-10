@@ -36,6 +36,9 @@ class PetsController < ApplicationController
   end
 
   post '/pets/:id' do
+    owner_name = params["owner"]["name"]
+    has_owner_name = !owner_name.empty?
+
     puts params
     if !params[:pet].keys.include?("owner_id")
       # params["owner"]["owner_id"] = []
@@ -44,9 +47,7 @@ class PetsController < ApplicationController
 
     end
     puts params
-    owner_name = params["owner"]["name"]
-    has_owner_name = !owner_name.empty?
-
+  
     @pet = Pet.find(params[:id])
     @pet.update(params["pet"])
 
