@@ -40,7 +40,7 @@ class PetsController < ApplicationController
     owner_name = @p.owner_name
     should_create_owner = !owner_name.empty?
 
-    puts @p.params
+    # puts @p.params
     puts owner_name
     puts params
 
@@ -62,7 +62,7 @@ end
 
 
 class UpdatePetParams
-  attr_accessor :params
+  # attr_accessor :params
 
   def initialize(params)
     if params["pet"].nil?
@@ -78,18 +78,18 @@ class UpdatePetParams
   end
 
   def pet_name
-    params["pet"]["name"]
+    @params["pet"]["name"]
   end
 
   def owner_name
-    params["owner"]["name"]
+    @params["owner"]["name"]
   end
 
   def owner_id
-    params["owner"]["owner_id"].first
+    @params["owner"]["owner_id"].first
   end
 
   def should_create_owner?
-    !params["owner"]["name"].empty?
+    !@params["owner"]["name"].empty?
   end
 end
