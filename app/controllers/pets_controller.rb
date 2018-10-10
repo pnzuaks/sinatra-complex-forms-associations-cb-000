@@ -40,8 +40,8 @@ class PetsController < ApplicationController
     has_owner_name = !owner_name.empty?
 
     puts params
-    
-    if !params[:pet].keys.include?("owner_id")
+      if own
+    # if !params[:pet].keys.include?("owner_id")
       # params["owner"]["owner_id"] = []
       params["pet"]["owner"]["name"] = Owner.find_by(id: params["pet"]["owner"]["owner_id"]).name
       @pet.owner = Owner.find_by(id: params["owner"]["owner_id"])
