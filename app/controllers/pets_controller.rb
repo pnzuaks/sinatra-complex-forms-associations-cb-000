@@ -12,8 +12,7 @@ class PetsController < ApplicationController
 
   post '/pets' do
     @pet = Pet.create(params[:pet])
-    puts params
-    puts @pet.class
+
     if !params["owner"]["name"].empty?
       @pet.owner = Owner.create(name: params["owner"]["name"])
       @pet.save
@@ -41,8 +40,7 @@ class PetsController < ApplicationController
 
     @pet = Pet.find(params[:id])
     @pet.update(params["pet"])
-    puts params
-    
+
     if owner_name.empty?
       owner_name = Owner.find_by(id: params["owner"]["owner_id"]).name
       @pet.owner = Owner.find_by(id: params["owner"]["owner_id"])
