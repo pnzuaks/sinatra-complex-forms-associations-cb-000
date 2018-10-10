@@ -50,17 +50,12 @@ class PetsController < ApplicationController
       owner_name = Owner.find_by(id: params["pet"]["owner"]["owner_id"]).name
       @pet.save
       # @pet.owner = Owner.find_by(id: params["owner"]["owner_id"])
-    elsif 
-    end
+      elsif has_owner_name
+        @pet.owner = Owner.create(name: owner_name)
+        @pet.save
+      end
+
     puts params
-
-
-
-    if has_owner_name
-      @pet.owner = Owner.create(name: owner_name)
-      @pet.save
-    end
-
     redirect to "pets/#{@pet.id}"
   end
 end
