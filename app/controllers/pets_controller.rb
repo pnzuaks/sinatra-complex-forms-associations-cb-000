@@ -49,7 +49,7 @@ class PetsController < ApplicationController
       # params["owner"]["owner_id"] = []
       # owner_name = Owner.find_by(id: params["owner"]["owner_id"]).name
       owner_name = Owner.find_by(id: params["owner"]["owner_id"]).name
-      @pet.owner = Owner.find_by(id: params["owner"]["owner_id"]).name
+      @pet.owner = Owner.find_by(id: params["owner"]["owner_id"])
       @pet.save
 
       elsif has_owner_name
