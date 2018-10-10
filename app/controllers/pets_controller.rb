@@ -35,7 +35,6 @@ class PetsController < ApplicationController
   end
 
   post '/pets/:id' do
-
     owner_name = params["owner"]["name"]
     should_create_owner = !owner_name.empty?
 
@@ -52,5 +51,12 @@ class PetsController < ApplicationController
 
     @pet.save
     redirect to "pets/#{@pet.id}"
+  end
+end
+
+
+class UpdatePetParams
+  def initialize(params)
+    
   end
 end
