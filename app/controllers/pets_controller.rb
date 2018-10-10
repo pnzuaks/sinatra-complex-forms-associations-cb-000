@@ -63,8 +63,8 @@ class UpdatePetParams
     if params["pet"]["name"].nil?
       raise "Expected Pet to have a name"
     end
-    if params["owner"]["name"].nil?
-      raise "Expected Pet to have a name"
+    if params["owner"]["owner_id"].empty? && params["owner"]["name"]
+      raise "Expected Owner to have a name"
     end
   end
 end
